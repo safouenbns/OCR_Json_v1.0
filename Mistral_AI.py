@@ -7,6 +7,7 @@ from datetime import datetime
 from mistralai import Mistral
 from PIL import Image
 import io
+from dotenv import load_dotenv
 
 def upload_pdf(client, content, filename):
     """
@@ -75,7 +76,8 @@ def main():
     st.set_page_config(page_title="Mistral OCR Processor", layout="wide")
     
     # Sidebar: Authentication for Mistral API
-    api_key = st.sidebar.text_input("Mistral API Key", type="password")
+    load_dotenv()
+    api_key = api_key = os.environ.get("API_KEY_NAME")
     
     if not api_key:
         st.warning("Enter API key to continue")
