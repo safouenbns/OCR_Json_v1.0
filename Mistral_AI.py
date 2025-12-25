@@ -173,16 +173,6 @@ def extract_resume_data(client, extracted_text):
                 "name": "",
                 "keywords": []
             }}
-        ],
-        "references": [
-            {{
-                "name": "",
-                "position": "",
-                "company": "",
-                "email": "",
-                "phone": "",
-                "relationship": ""
-            }}
         ]
     }}
     
@@ -255,7 +245,6 @@ def create_empty_resume_structure():
         "publications": [],
         "languages": [],
         "interests": [],
-        "references": []
     }
 
 def display_pdf(file):
@@ -308,7 +297,7 @@ def display_resume_summary(resume_data):
         st.write(f"**Projects:** {len(resume_data['projects'])} projects")
     
     # Other sections
-    sections = ["volunteer", "awards", "certificates", "publications", "languages", "interests", "references"]
+    sections = ["volunteer", "awards", "certificates", "publications", "languages", "interests"]
     for section in sections:
         if resume_data[section]:
             st.write(f"**{section.title()}:** {len(resume_data[section])} entries")
@@ -344,8 +333,6 @@ def create_empty_resume_structure():
         "certificates": [],
         "publications": [],
         "languages": [],
-        "interests": [],
-        "references": []
     }
 
 def main():
